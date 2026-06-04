@@ -1,24 +1,14 @@
 #include <iostream>
-#include "logger.cpp"
-#include <SFML/Graphics.hpp>
+#include "logger.hpp"
+#include "render/renderer.hpp"
 
 int main() {
     Logger log;
+    Renderer renderer;
     log.info("BarpVN v0.0.0 by DessieOwO"); //Version number will probably be a variable asp. 
     log.warn("This is a development build, expect crashes and bugs!");
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "BarpVN");
-
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed){
-                window.close();
-            }
-        }
-        window.clear();
-        window.display();
-    }
+    renderer.render();
 
     return 0;
 }
